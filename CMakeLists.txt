@@ -9,9 +9,17 @@ set(TARGET_LIB serialization)
 
 set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR})
 
+# A preprocessing is always executed with gfortran.
+set(CPP_Fortran_NAME gfortran)
+find_path(CPP_Fortran_PATH ${CPP_Fortran_NAME})
+if (CPP_Fortran_PATH)
+  message(STATUS "Preprocess compiler: ${CPP_Fortran_PATH}/${CPP_Fortran_NAME}")
+else ()
+  message(FATAL_ERROR "GNU Fortran compiler `${CPP_Fortran_NAME}` is required.")
+endif ()
 add_custom_command(
   OUTPUT  ${TARGET}
-  COMMAND ${CMAKE_Fortran_COMPILER} -E -P -cpp ${SOURCE} -o ${TARGET}
+  COMMAND ${CPP_Fortran_PATH}/${CPP_Fortran_NAME} -E -P -cpp ${SOURCE} -o ${TARGET}
   COMMAND sed -i -e 's/\;\;/\\n/g' ${TARGET}
   DEPENDS ${SOURCE}
   )
