@@ -3,9 +3,9 @@ enable_testing()
 
 project(FortranSerialization Fortran)
 
-set(TARGET     ${CMAKE_CURRENT_BINARY_DIR}/serialization.f90)
-set(SOURCE     ${CMAKE_CURRENT_SOURCE_DIR}/src/serialization.f90)
-set(TARGET_LIB serialization)
+set(TARGET     ${CMAKE_CURRENT_BINARY_DIR}/fortran_serialization.f90)
+set(SOURCE     ${CMAKE_CURRENT_SOURCE_DIR}/src/fortran_serialization.f90)
+set(TARGET_LIB fortran_serialization)
 
 set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR})
 

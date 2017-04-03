@@ -18,7 +18,7 @@ This module has three generic routines.
 You can install source file to your applications.
 
 ```Fortran
-module serialization
+module fortran_serialization
   logical, parameter :: SERIALIZE_SAVE_MODE = .TRUE.
   logical, parameter :: SERIALIZE_LOAD_MODE = .FALSE.
 
@@ -48,7 +48,7 @@ Allocatable array can be stored without concern for variables is allocated.
 
 ```Fortran
 subroutine backup
-  use serialization
+  use fortran_serialization
   implicit none
   integer, parameter      :: iounit = 42
   integer, allocatable    :: a(:)
@@ -68,7 +68,7 @@ subroutine backup
 end subroutine
 
 subroutine restore
-  use serialization
+  use fortran_serialization
   implicit none
   integer, parameter      :: iounit = 42
   integer, allocatable    :: a(:)
@@ -105,21 +105,21 @@ program main
 
 contains
   subroutine checkpoint(iounit)
-    use serialization, only: SERIALIZE_SAVE_MODE
+    use fortran_serialization, only: SERIALIZE_SAVE_MODE
     implicit none
     integer, intent(in) :: iounit
     call check_restart(SERIALIZE_SAVE_MODE, iounit)
   end subroutine
 
   subroutine restart(iounit)
-    use serialization, only: SERIALIZE_LOAD_MODE
+    use fortran_serialization, only: SERIALIZE_LOAD_MODE
     implicit none
     integer, intent(in) :: iounit
     call check_restart(SERIALIZE_LOAD_MODE, iounit)
   end subroutine
 
   subroutine check_restart(mode, iounit)
-    use serialization
+    use fortran_serialization
     use global_variables ! target variables for backup/restore
     implicit none
     logical, intent(in) :: mode   ! SERIALIZE_SAVE_MODE or SERIALIZE_LOAD_MODE
@@ -145,7 +145,7 @@ You can easily add unsupported data types.
     $ make
     $ ctest
     $ ls *.f90
-    serialization.f90
+    fortran_serialization.f90
 
 
 ## Supported (Tested) compilers

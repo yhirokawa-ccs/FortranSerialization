@@ -6,7 +6,7 @@ program test1
 
 contains
   subroutine backup
-    use serialization
+    use fortran_serialization
     implicit none
     integer, parameter      :: iounit = 42
     integer, allocatable    :: a(:)
@@ -26,7 +26,7 @@ contains
   end subroutine
 
   subroutine restore
-    use serialization
+    use fortran_serialization
     implicit none
     integer, parameter      :: iounit = 42
     integer, allocatable    :: a(:)

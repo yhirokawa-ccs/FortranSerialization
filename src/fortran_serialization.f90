@@ -13,7 +13,7 @@
 !  See the License for the specific language governing permissions and
 !  limitations under the License.
 !
-module serialization
+module fortran_serialization
   implicit none
 
   public :: SERIALIZE_SAVE_MODE

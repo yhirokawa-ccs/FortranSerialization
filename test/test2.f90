@@ -53,21 +53,21 @@ program test2
 
 contains
   subroutine test_serialize(iounit)
-    use serialization, only: SERIALIZE_SAVE_MODE
+    use fortran_serialization, only: SERIALIZE_SAVE_MODE
     implicit none
     integer, intent(in) :: iounit
     call test_serialization(SERIALIZE_SAVE_MODE, iounit)
   end subroutine
 
   subroutine test_deserialize(iounit)
-    use serialization, only: SERIALIZE_LOAD_MODE
+    use fortran_serialization, only: SERIALIZE_LOAD_MODE
     implicit none
     integer, intent(in) :: iounit
     call test_serialization(SERIALIZE_LOAD_MODE, iounit)
   end subroutine
 
   subroutine test_serialization(mode, iounit)
-    use serialization
+    use fortran_serialization
     use global_variables
     implicit none
     logical, intent(in) :: mode
