@@ -130,7 +130,7 @@ contains
     call serialize_value(mode, iounit, c)
     ...
   end subroutine
-end subroutine
+end program
 ```
 
 
