@@ -134,12 +134,24 @@ end program
 ```
 
 
-## Modifying and Testing
+## Generating and Testing
+
+A library is generated with fortran preprocessor, original file (before preprocessing) exists to src directory.
+You can easily add unsupported data types.
+
+    $ mkdir build-temp
+    $ cd build-temp
+    $ FFLAGS="-std=f2003 -Wall -pedantic-errors" cmake ${FortranSerializationSourceDirectory}
+    $ make
+    $ ctest
+    $ ls *.f90
+    serialization.f90
 
 
+## Supported (Tested) compilers
 
-## Supported compilers
-
+- GNU Fortran 4.8.5
+- Intel Fortran 17.0.2
 
 
 ## License
