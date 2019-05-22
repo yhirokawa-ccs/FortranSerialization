@@ -1,3 +1,5 @@
+**ATTENTION: This library no longer maintained. It was upgrade, please access to [a compatible library](https://github.com/yhirokawa/cbsl).**
+
 # FortranSerialization
 
 A binary-type simple serialization module for Fortran (2003 or later versions).
